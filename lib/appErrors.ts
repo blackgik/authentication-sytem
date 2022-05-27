@@ -6,7 +6,7 @@ class AppError extends Error {
 
 	constructor(message:string, statusCode:number = 500) {
 		super(message);
-		this.name = "EvlerrError";
+		this.name = "VobbCRMErrors";
 		this.statusCode = statusCode;
 		this.isOperational = true;
 		this.date = new Date();

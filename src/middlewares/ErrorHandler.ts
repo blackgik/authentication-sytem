@@ -14,16 +14,16 @@ const errorNames = [
 	"SyntaxError",
 	"MongooseError",
 	"MongoError",
-	"ZodError",
+	"ZodError"
 ];
 
 export const ErrorHandler = function (
 	error: any,
 	req: Request,
 	res: Response,
-	next: NextFunction,
+	next: NextFunction
 ) {
-	if (error.name === "VobbioError" || error.isOperational) {
+	if (error.name === "VobbCRMErrors" || error.isOperational) {
 		return res
 			.status(error.statusCode)
 			.send(appResponse(error.message, null, false));
@@ -37,8 +37,8 @@ export const ErrorHandler = function (
 				appResponse(
 					"validation error occurred check your inputs for corrections",
 					null,
-					errorMessages,
-				),
+					errorMessages
+				)
 			);
 	}
 
@@ -57,8 +57,8 @@ export const ErrorHandler = function (
 					appResponse(
 						"Token has expired, Request a reset password again",
 						null,
-						false,
-					),
+						false
+					)
 				);
 		}
 
